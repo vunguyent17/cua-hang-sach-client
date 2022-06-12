@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.tenHoa
+{
+    font-weight: bold;
+    text-decoration:none;
+}
+
+.navbar-green, .navbar-green a
+{
+  background-color: lightgreen;
+  color: green;
+  font-weight: bold;
+}
+
+.banner-title p
+{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
