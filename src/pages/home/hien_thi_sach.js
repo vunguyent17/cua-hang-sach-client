@@ -12,7 +12,7 @@ function HienThiSach(props) {
   // Xử lý lấy dữ liệu
   useEffect(() => {
     async function fetchData() {
-      const fetchLoaiSach = await axios.get("http://localhost:8081/loai-sach/");
+      const fetchLoaiSach = await axios.get("https://cua-hang-sach-server.herokuapp.com/loai-sach/");
       setDSLoaiSach(fetchLoaiSach.data);
       setLoading(false);
     }
@@ -28,7 +28,7 @@ function HienThiSach(props) {
         ma_sach: event.target.getAttribute("data-masach"),
       };
       await axios
-        .put("http://localhost:8081/giohang", user_input)
+        .put("https://cua-hang-sach-server.herokuapp.com/giohang", user_input)
         .then((res) => {
           props.setUpdateCart(true)
           alert(res.data);
@@ -47,9 +47,9 @@ function HienThiSach(props) {
     return props.ds_sach.map((sach) => {
       let hinh_sach;
       try {
-        hinh_sach = "http://localhost:8081/img/" + sach.hinh;
+        hinh_sach = "https://cua-hang-sach-server.herokuapp.com/img/" + sach.hinh;
       } catch (error) {
-        hinh_sach = "http://localhost:8081/img/img-default.jpg";
+        hinh_sach = "https://cua-hang-sach-server.herokuapp.com/img/img-default.jpg";
       }
       return (
         <div key={sach.ma_sach} className="col">

@@ -77,8 +77,8 @@ function ChinhSuaSachForm() {
     let method_http = location.state === null ? "post" : "put";
     let url_http =
       location.state === null
-        ? "http://localhost:8081/sach"
-        : "http://localhost:8081/sach/" + userInputs.ma_sach;
+        ? "https://cua-hang-sach-server.herokuapp.com/sach"
+        : "https://cua-hang-sach-server.herokuapp.com/sach/" + userInputs.ma_sach;
     let thong_bao =
       location.state === null ? "Đã thêm sách mới" : "Đã cập nhật sách";
 
@@ -107,7 +107,7 @@ function ChinhSuaSachForm() {
     console.log(imagefile);
     console.log(formData.get("image"));
     axios
-      .post(`http://localhost:8081/sach/upload-anh`, formData, {
+      .post(`https://cua-hang-sach-server.herokuapp.com/sach/upload-anh`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
@@ -159,7 +159,7 @@ function ChinhSuaSachForm() {
   }
 
   function loadPhotoType() {
-    loadURLToInputFiled("http://localhost:8081/public/img/" + userInputs.hinh);
+    loadURLToInputFiled("https://cua-hang-sach-server.herokuapp.com/public/img/" + userInputs.hinh);
   }
 
   function loadURLToInputFiled(url) {

@@ -22,10 +22,10 @@ function ChiTietSach() {
   // Xử lý dữ liệu: lấy dữ liệu sách và loại sách
   useEffect(() => {
     async function getData() {
-      let res_loai_sach = await axios.get("http://localhost:8081/loai-sach/");
+      let res_loai_sach = await axios.get("https://cua-hang-sach-server.herokuapp.com/loai-sach/");
       setDSLoaiSach(res_loai_sach.data);
       const { ma_sach } = location.state;
-      let res_sach = await axios.get("http://localhost:8081/sach/" + ma_sach);
+      let res_sach = await axios.get("https://cua-hang-sach-server.herokuapp.com/sach/" + ma_sach);
       setSach(res_sach.data);
       setLoading(false);
     }
@@ -41,7 +41,7 @@ function ChiTietSach() {
       so_luong: parseInt(document.getElementById("soluong").value),
     };
     await axios
-      .put("http://localhost:8081/giohang", user_input)
+      .put("https://cua-hang-sach-server.herokuapp.com/giohang", user_input)
       .then((res) => {
         setUpdateCart(true);
         alert(res.data);
@@ -72,9 +72,9 @@ function ChiTietSach() {
 
     let hinh_sach;
     try {
-      hinh_sach = "http://localhost:8081/img/" + sach.hinh;
+      hinh_sach = "https://cua-hang-sach-server.herokuapp.com/img/" + sach.hinh;
     } catch (error) {
-      hinh_sach = "http://localhost:8081/img/img-default.jpg";
+      hinh_sach = "https://cua-hang-sach-server.herokuapp.com/img/img-default.jpg";
     }
 
     return (

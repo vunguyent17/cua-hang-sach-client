@@ -28,7 +28,7 @@ function DangKy() {
     let user_input = userInputs;
     console.log(user_input);
     axios
-      .post("http://localhost:8081/dangky", user_input)
+      .post("https://cua-hang-sach-server.herokuapp.com/dangky", user_input)
       .then((res) => {
         console.log(res.data);
         alert("Đăng ký thành công");

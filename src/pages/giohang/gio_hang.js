@@ -20,14 +20,14 @@ function GioHang() {
         username: user_info.username,
         password: user_info.password,
       };
-      let sach_get = await axios.get("http://localhost:8081/sach/all");
+      let sach_get = await axios.get("https://cua-hang-sach-server.herokuapp.com/sach/all");
       let user_res = await axios.post(
-        "http://localhost:8081/dangnhap",
+        "https://cua-hang-sach-server.herokuapp.com/dangnhap",
         user_req
       );
       if (user_res.data.length > 0) {
         let ds_sach_dat = user_res.data[0].cart;
-        setChiTietGH(
+         setChiTietGH(
           ds_sach_dat.map((sach_dat) => {
             let sach_info = sach_get.data.find(
               (sach) => sach.ma_sach === sach_dat.ma_sach
@@ -37,10 +37,10 @@ function GioHang() {
         );
       } else {
         alert("Lỗi khi truy cập. Xin hãy đăng xuất và đăng nhập lại");
-      }
-      setLoadingData(false);
+      }  
     }
     getData();
+    setLoadingData(false);
   }, [loadingValue]);
 
 
@@ -68,7 +68,7 @@ function GioHang() {
     };
 
     let res = await axios
-      .delete("http://localhost:8081/giohang", {
+      .delete("https://cua-hang-sach-server.herokuapp.com/giohang", {
         data: user_input,
       })
       .catch((error) => {
@@ -105,9 +105,9 @@ function GioHang() {
 
       let hinh_sach;
       try {
-        hinh_sach = "http://localhost:8081/img/" + sach.hinh;
+        hinh_sach = "https://cua-hang-sach-server.herokuapp.com/img/" + sach.hinh;
       } catch (error) {
-        hinh_sach = "http://localhost:8081/img/img-default.jpg";
+        hinh_sach = "https://cua-hang-sach-server.herokuapp.com/img/img-default.jpg";
       }
 
       // Cập nhật lại thành tiền cho từng sách khi người dùng thay đổi số lượng
@@ -123,7 +123,7 @@ function GioHang() {
         };
 
         await axios
-          .put("http://localhost:8081/giohang", user_input)
+          .put("https://cua-hang-sach-server.herokuapp.com/giohang", user_input)
           .then((res) => {
             setUpdateCart(true);
             setLoading(loadingValue + 1);

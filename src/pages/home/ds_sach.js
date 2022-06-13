@@ -13,14 +13,14 @@ function DanhSachSach(props) {
   // Xử lý lấy dữ liệu
   useEffect(() => {
     async function fetchData() {
-      const fetchLoaiSach = await axios.get("http://localhost:8081/loai-sach/");
+      const fetchLoaiSach = await axios.get("https://cua-hang-sach-server.herokuapp.com/loai-sach/");
       let fetchSach;
       if (location.state == null) {
-        fetchSach = await axios.get("http://localhost:8081/sach/all");
+        fetchSach = await axios.get("https://cua-hang-sach-server.herokuapp.com/sach/all");
       } else {
         const { ma_loai } = location.state;
         fetchSach = await axios.get(
-          "http://localhost:8081/sach/loai/" + ma_loai
+          "https://cua-hang-sach-server.herokuapp.com/sach/loai/" + ma_loai
         );
       }
       setDSLoaiSach(fetchLoaiSach.data);

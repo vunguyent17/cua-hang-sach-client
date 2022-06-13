@@ -16,7 +16,7 @@ function TimKiem() {
   // Xử lý dữ liệu
   useEffect(() => {
     let ds_sach_get = async () => {
-      let res = await axios.get("http://localhost:8081/timkiem/" + tu_khoa);
+      let res = await axios.get("https://cua-hang-sach-server.herokuapp.com/timkiem/" + tu_khoa);
       setDSSach(res.data);
       setLoading(false);
     };

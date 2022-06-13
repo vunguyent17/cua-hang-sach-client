@@ -28,7 +28,7 @@ function ChinhSuaLoaiSachForm() {
       });
     }
     async function getData() {
-      let res = await axios.get("http://localhost:8081/loai-sach");
+      let res = await axios.get("https://cua-hang-sach-server.herokuapp.com/loai-sach");
       setUserInputs({ ma_loai: res.data.length + 1, ten_loai: "" });
       setLoading(false);
     }
@@ -61,7 +61,7 @@ function ChinhSuaLoaiSachForm() {
     await axios
       .request({
         method: method_http,
-        url: "http://localhost:8081/loai-sach",
+        url: "https://cua-hang-sach-server.herokuapp.com/loai-sach",
         data: user_input,
       })
       .then((res) => {

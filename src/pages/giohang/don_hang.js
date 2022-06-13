@@ -64,9 +64,9 @@ function DonHang() {
         username: user_info.username,
         password: user_info.password,
       };
-      let sach_get = await axios.get("http://localhost:8081/sach/all");
+      let sach_get = await axios.get("https://cua-hang-sach-server.herokuapp.com/sach/all");
       let user_res = await axios.post(
-        "http://localhost:8081/dangnhap",
+        "https://cua-hang-sach-server.herokuapp.com/dangnhap",
         user_req
       );
       if (user_res.data.length === 0) {
@@ -141,7 +141,7 @@ function DonHang() {
       tong_tien: tong_tien,
     };
     await axios
-      .post("http://localhost:8081/hoadon", don_hang)
+      .post("https://cua-hang-sach-server.herokuapp.com/hoadon", don_hang)
       .then((res) => {
         alert("Đã thêm hóa đơn mới");
       })
@@ -157,7 +157,7 @@ function DonHang() {
 
     // Xóa các sản phẩm đã đặt hàng ra khỏi giỏ hàng
     await axios
-      .delete("http://localhost:8081/giohang", {data: user_info})
+      .delete("https://cua-hang-sach-server.herokuapp.com/giohang", {data: user_info})
       .then((res) => {
         console.log(res.data);
       })

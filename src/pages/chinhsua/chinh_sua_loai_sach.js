@@ -10,7 +10,7 @@ function ChinhSuaLoaiSach() {
 
   // Xử lý lấy dữ liệu loại sách
   useEffect(() => {
-    axios.get("http://localhost:8081/loai-sach").then((res) => {
+    axios.get("https://cua-hang-sach-server.herokuapp.com/loai-sach").then((res) => {
       setData(res.data);
       setLoading(false);
     });
@@ -22,7 +22,7 @@ function ChinhSuaLoaiSach() {
     let ma_loai = event.target.getAttribute("data-maloai");
     async function deleteData() {
       await axios
-        .delete("http://localhost:8081/loai-sach/" + ma_loai)
+        .delete("https://cua-hang-sach-server.herokuapp.com/loai-sach/" + ma_loai)
         .then((res) => {
           alert(res.data);
           window.location.reload();

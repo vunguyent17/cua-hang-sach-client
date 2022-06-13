@@ -14,7 +14,7 @@ function DangNhap() {
     event.preventDefault();
     let user_input = { username: username_input, password: password_input };
     await axios
-      .post("http://localhost:8081/dangnhap", user_input)
+      .post("https://cua-hang-sach-server.herokuapp.com/dangnhap", user_input)
       .then((res) => {
         if (res.data.length > 0) {
           alert("Đăng nhập thành công")

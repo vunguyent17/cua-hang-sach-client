@@ -26,7 +26,7 @@ function TitleBar(props) {
           password: user_info.password,
         };
         let user_res = await axios.post(
-          "http://localhost:8081/dangnhap",
+          "https://cua-hang-sach-server.herokuapp.com/dangnhap",
           user_req
         );
         if (user_res.data.length > 0) {
@@ -62,7 +62,7 @@ function TitleBar(props) {
           to="/"
         >
           <img
-            src="http://localhost:8081/logo/favicon-32x32.png"
+            src="https://cua-hang-sach-server.herokuapp.com/logo/favicon-32x32.png"
             alt="logo"
             className="px-2"
           ></img>

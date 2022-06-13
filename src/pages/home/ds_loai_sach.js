@@ -10,7 +10,7 @@ function DanhSachLoaiSach() {
 
   // Xử lý lấy dữ liệu
   useEffect(() => {
-    axios.get("http://localhost:8081/loai-sach").then((res) => {
+    axios.get("https://cua-hang-sach-server.herokuapp.com/loai-sach").then((res) => {
       setData(res.data);
       setLoading(false);
     });

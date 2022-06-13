@@ -11,7 +11,7 @@ function ChinhSuaSach() {
   // Xử lý dữ liệu tải dữ liệu sách
   useEffect(() => {
     async function fetchData() {
-      const fetchSach = await axios.get("http://localhost:8081/sach/all");
+      const fetchSach = await axios.get("https://cua-hang-sach-server.herokuapp.com/sach/all");
       setData(fetchSach.data);
       setLoading(false);
     }
@@ -24,7 +24,7 @@ function ChinhSuaSach() {
     let ma_sach = event.target.getAttribute("data-masach");
     async function deleteData() {
       await axios
-        .delete("http://localhost:8081/sach/" + ma_sach)
+        .delete("https://cua-hang-sach-server.herokuapp.com/sach/" + ma_sach)
         .then((res) => {
           alert(`Đã xóa ${res.data.deletedCount} sách thành công`);
           window.location.reload();
